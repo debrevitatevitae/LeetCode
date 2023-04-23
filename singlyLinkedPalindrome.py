@@ -29,7 +29,32 @@ class Solution:
 class SolutionStack:
 
     def isPalindrome(self, head) -> bool:
+        """
+        O(N) time and O(N) space
+        :param head:
+        :return:
+        """
         l = [head.val]
-        while head.next:
-            head = head.next
-            l.append(head.val)
+        node = head
+        # populate stack
+        while node.next:
+            node = node.next
+            l.append(node.val)
+        # read from top and from bottom and compare
+        node = head
+        while node.next:
+            if head.val != l.pop():
+                return False
+            node = node.next
+        return True
+
+
+class SolutionRecursion:
+
+    def isPalindrome(self, head) -> bool:
+        """
+        O(N) time and O(N) space
+        :param head:
+        :return:
+        """
+        pass
